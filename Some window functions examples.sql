@@ -56,12 +56,12 @@ FROM [dbo].[Orders]
 FROM [dbo].[Orders]
 
 SELECT order_id,order_date,customer_name,city, 
-RANK() OVER(ORDER BY order_amount DESC) [Rank]
+RANK() OVER(ORDER BY order_amount DESC) [rank]
 FROM [dbo].[Orders]
 
  
 SELECT order_id,order_date,customer_name,city, order_amount,
-DENSE_RANK() OVER(ORDER BY order_amount DESC) [Rank]
+DENSE_RANK() OVER(ORDER BY order_amount DESC) [dense_rank]
 FROM [dbo].[Orders]
 
 
@@ -73,7 +73,7 @@ FROM [dbo].[Orders]
 
 -- Percentile
 SELECT order_id,order_date,customer_name,city, order_amount,
-NTILE(4) OVER(ORDER BY order_amount) [row_number]
+NTILE(4) OVER(ORDER BY order_amount) [ntile]
 FROM [dbo].[Orders]
 
 
